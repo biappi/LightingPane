@@ -343,6 +343,16 @@ public class LCARSButton : UIControl {
 }
 
 @IBDesignable
+public class LCARSUIButton : UIButton {
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        titleLabel?.font = LCARSLabel.font.withSize(titleLabel?.font.pointSize ?? 17)
+    }
+    
+}
+
+@IBDesignable
 public class LCARSLabel : UIView {
     
     private let label = UILabel()
