@@ -442,6 +442,11 @@ public class LCARSStartCap : UIView {
         layer.mask = shape
     }
 
+    public override var intrinsicContentSize: CGSize {
+        var size = bounds.size
+        size.width = 2 * size.height
+        return size
+    }
 }
 
 @IBDesignable
@@ -471,36 +476,70 @@ public class LCARSEndCap : UIView {
 @IBDesignable
 public class LCARSTitle : UIView {
     
-    private let stackView = UIStackView()
-    private let startCap  = LCARSStartCap()
-    private let endCap    = LCARSEndCap()
-    private let label     = LCARSLabel()
-    private let bar       = UIView()
+    private let stackView  = UIStackView()
+    private let startCap   = LCARSStartCap()
+    private let endCap     = LCARSEndCap()
+    private let labelLeft  = LCARSLabel()
+    private let labelRight = LCARSLabel()
+    private let bar        = UIView()
+
+    private func hideLabels() {
+        labelLeft.isHidden  = textHidden || !textBefore
+        labelRight.isHidden = textHidden ||  textBefore
+    }
     
-    @IBInspectable var text : String = " " {
-        didSet { label.text = text }
+    @IBInspectable var textBefore : Bool = true {
+        didSet { hideLabels() }
+    }
+    
+    @IBInspectable var textHidden : Bool = false {
+        didSet { hideLabels() }
     }
 
-    @IBInspectable var textSize : CGFloat {
-        get { return label.size }
-        set { label.size = newValue }
+    @IBInspectable var text : String = " " {
+        didSet {
+            labelLeft.text = text
+            labelRight.text = text
+        }
     }
-    
+
+    @IBInspectable var textSize : CGFloat = 50{
+        didSet {
+            labelLeft.size = textSize
+            labelRight.size = textSize
+        }
+    }
+
+    @IBInspectable var spacing : CGFloat = 5 {
+        didSet { stackView.spacing = spacing }
+    }
+
     override public func layoutSubviews() {
         if stackView.superview == nil {
-            stackView.translatesAutoresizingMaskIntoConstraints = false
-            startCap.translatesAutoresizingMaskIntoConstraints  = false
-            endCap.translatesAutoresizingMaskIntoConstraints    = false
-            label.translatesAutoresizingMaskIntoConstraints     = false
-            bar.translatesAutoresizingMaskIntoConstraints       = false
+            stackView.translatesAutoresizingMaskIntoConstraints  = false
+            startCap.translatesAutoresizingMaskIntoConstraints   = false
+            endCap.translatesAutoresizingMaskIntoConstraints     = false
+            labelLeft.translatesAutoresizingMaskIntoConstraints  = false
+            labelRight.translatesAutoresizingMaskIntoConstraints = false
+            bar.translatesAutoresizingMaskIntoConstraints        = false
             
-            label.text = text
+            labelLeft.text = text
             
-            label.setContentHuggingPriority(.required, for: .horizontal)
-            label.setContentHuggingPriority(.required, for: .vertical)
+            labelLeft.setContentHuggingPriority(.required, for: .horizontal)
+            labelLeft.setContentHuggingPriority(.required, for: .vertical)
             
-            label.setContentCompressionResistancePriority(.required, for: .horizontal)
-            label.setContentCompressionResistancePriority(.required, for: .vertical)
+            labelLeft.setContentCompressionResistancePriority(.required, for: .horizontal)
+            labelLeft.setContentCompressionResistancePriority(.required, for: .vertical)
+
+            labelRight.text = text
+
+            labelRight.text = text
+            
+            labelRight.setContentHuggingPriority(.required, for: .horizontal)
+            labelRight.setContentHuggingPriority(.required, for: .vertical)
+            
+            labelRight.setContentCompressionResistancePriority(.required, for: .horizontal)
+            labelRight.setContentCompressionResistancePriority(.required, for: .vertical)
 
             startCap.backgroundColor = .white
             endCap.backgroundColor   = .white
@@ -509,11 +548,14 @@ public class LCARSTitle : UIView {
             stackView.axis         = .horizontal
             stackView.alignment    = .fill
             stackView.distribution = .fill
-            stackView.spacing      = 5
+            stackView.spacing      = spacing
+            
+            hideLabels()
             
             stackView.addArrangedSubview(startCap)
-            stackView.addArrangedSubview(label)
+            stackView.addArrangedSubview(labelLeft)
             stackView.addArrangedSubview(bar)
+            stackView.addArrangedSubview(labelRight)
             stackView.addArrangedSubview(endCap)
             
             addSubview(stackView)
@@ -527,9 +569,9 @@ public class LCARSTitle : UIView {
                 stackView.leftAnchor.constraint(equalTo: leftAnchor),
                 stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
                 
-                endCap.widthAnchor.constraint(equalTo: endCap.heightAnchor, multiplier: 0.5, constant: 0),
-                startCap.widthAnchor.constraint(equalTo: startCap.heightAnchor, multiplier: 0.5, constant: 0),
-                
+                endCap.widthAnchor.constraint(equalTo: endCap.heightAnchor, multiplier: 1, constant: 0),
+                startCap.widthAnchor.constraint(equalTo: startCap.heightAnchor, multiplier: 1, constant: 0),
+            
                 barWidth,
             ])
         }
