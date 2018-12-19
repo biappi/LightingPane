@@ -514,6 +514,33 @@ public class LCARSTitle : UIView {
         didSet { stackView.spacing = spacing }
     }
 
+    
+    @IBInspectable var colorStartCap : UIColor  {
+        set { startCap.backgroundColor = newValue }
+        get { return startCap.backgroundColor ?? .white }
+    }
+
+    @IBInspectable var colorText : UIColor  {
+        set {
+            labelLeft.color = newValue
+            labelRight.color = newValue
+        }
+        
+        get {
+            return labelLeft.color
+        }
+    }
+
+    @IBInspectable var colorBar : UIColor  {
+        set { bar.backgroundColor = newValue }
+        get { return bar.backgroundColor ?? .white }
+    }
+
+    @IBInspectable var colorEndCap : UIColor  {
+        set { endCap.backgroundColor = newValue }
+        get { return endCap.backgroundColor ?? .white }
+    }
+
     override public func layoutSubviews() {
         if stackView.superview == nil {
             stackView.translatesAutoresizingMaskIntoConstraints  = false
@@ -540,10 +567,6 @@ public class LCARSTitle : UIView {
             
             labelRight.setContentCompressionResistancePriority(.required, for: .horizontal)
             labelRight.setContentCompressionResistancePriority(.required, for: .vertical)
-
-            startCap.backgroundColor = .white
-            endCap.backgroundColor   = .white
-            bar.backgroundColor      = .white
             
             stackView.axis         = .horizontal
             stackView.alignment    = .fill
