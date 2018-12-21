@@ -726,6 +726,8 @@ public class LCARSGradientSlider : UIControl {
     
     let caret = UIView()
     
+    public var slidingActionStarted : (Bool) -> Void = { _ in }
+    
     public var colors : [CGColor] {
         get { return gradientLayer.colors as? [CGColor] ?? [] }
         set { gradientLayer.colors = newValue }
@@ -771,7 +773,7 @@ public class LCARSGradientSlider : UIControl {
         gradientLayer.frame = layer.bounds
     }
     
-    @objc func onPan(sender: Any) {
+    @objc func onPan(sender: UIPanGestureRecognizer) {
         let l = panRecognizer.location(in: self)
         caret.center.x = l.x
         
@@ -780,7 +782,16 @@ public class LCARSGradientSlider : UIControl {
             min(bounds.width - caret.frame.size.width, caret.frame.origin.x)
         )
         
+        if sender.state == .began {
+            slidingActionStarted(true)
+        }
+        
         sendActions(for: .valueChanged)
+        
+        if (sender.state == .cancelled) || (sender.state == .ended) {
+            slidingActionStarted(false)
+        }
+
     }
     
     public var theValue : CGFloat {

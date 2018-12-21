@@ -130,6 +130,28 @@ class LightPanelController : NSObject, LightObserver {
         }
     }
     
+    var tracking = false
+    
+    override func awakeFromNib() {
+        let action = { [weak self] (t: Bool) in
+            guard let self = self else { return }
+            
+            self.tracking = t
+            
+            if t == false {
+                self.hue       .theValue = self.hsv.h
+                self.saturation.theValue = self.hsv.s
+                self.brightness.theValue = self.hsv.v
+            }
+        }
+        
+        DispatchQueue.main.async {
+            self.brightness.slidingActionStarted = action
+            self.hue.slidingActionStarted        = action
+            self.saturation.slidingActionStarted = action
+        }
+    }
+    
     func updateGradients(hsv: HSV) {
         hue.colors = (0 ..< 10)
             .map { hsv.changing(h: CGFloat($0) / 10, s: nil, v: nil).cgColor }
@@ -146,9 +168,11 @@ class LightPanelController : NSObject, LightObserver {
         
         updateGradients(hsv: to)
         
-        hue       .theValue = to.h
-        saturation.theValue = to.s
-        brightness.theValue = to.v
+        if tracking == false {
+            hue       .theValue = to.h
+            saturation.theValue = to.s
+            brightness.theValue = to.v
+        }
     }
     
     func light(_ delegate: Light, didChangePower to: Bool) {
@@ -465,6 +489,6 @@ class ViewController: UIViewController, HMHomeManagerDelegate {
     }
 }
 
-let lightstripUUID   = UUID(uuidString: "C10389A5-B9BC-53B0-8F24-5FF4685AE82E")!
-let roadsideUUID     = UUID(uuidString: "1AA24C16-346D-5936-BE54-20A6CB0118C3")! // UUID(uuidString: "363EFF22-CA03-5ED0-8304-C077CB20D9D8")!
-let internalsideUUID = UUID(uuidString: "F3FD5A39-513F-52CD-85B2-3FC5D5915826")! // UUID(uuidString: "885D77EB-4292-5C34-955A-48F261BDB7AD")!
+let lightstripUUID   = UUID(uuidString: "083ED634-35E6-50F3-9444-486B2D49FCA4")! // UUID(uuidString: "C10389A5-B9BC-53B0-8F24-5FF4685AE82E")!
+let roadsideUUID     = UUID(uuidString: "A7A76011-61C9-5D48-8251-AF5D14636E6B")! // UUID(uuidString: "1AA24C16-346D-5936-BE54-20A6CB0118C3")! // UUID(uuidString: "363EFF22-CA03-5ED0-8304-C077CB20D9D8")!
+let internalsideUUID = UUID(uuidString: "722F1997-53F2-58BE-A2CA-10D807D0A4ED")! // UUID(uuidString: "F3FD5A39-513F-52CD-85B2-3FC5D5915826")! // UUID(uuidString: "885D77EB-4292-5C34-955A-48F261BDB7AD")!
