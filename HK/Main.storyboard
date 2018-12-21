@@ -527,12 +527,76 @@
                                             </view>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hW4-ky-eAe">
+                                        <rect key="frame" x="0.0" y="35" width="774" height="50"/>
+                                        <connections>
+                                            <action selector="toggleOff:" destination="82S-SV-9OZ" eventType="touchUpInside" id="5QD-Hb-xjE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XMd-ZX-7Ze">
+                                        <rect key="frame" x="0.0" y="352" width="774" height="50"/>
+                                        <connections>
+                                            <action selector="toggleOff:" destination="KIg-ZE-lHV" eventType="touchUpInside" id="YxR-pa-6C8"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L3I-ph-afv">
+                                        <rect key="frame" x="0.0" y="35" width="774" height="281"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Pa-hn-En2">
+                                                <rect key="frame" x="0.0" y="0.0" width="774" height="281"/>
+                                                <connections>
+                                                    <action selector="toggleOn:" destination="82S-SV-9OZ" eventType="touchUpInside" id="Zdh-Up-KGu"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65655259683098588" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="7Pa-hn-En2" secondAttribute="bottom" id="2nX-fb-kHN"/>
+                                            <constraint firstAttribute="trailing" secondItem="7Pa-hn-En2" secondAttribute="trailing" id="7Er-ei-9aV"/>
+                                            <constraint firstItem="7Pa-hn-En2" firstAttribute="top" secondItem="L3I-ph-afv" secondAttribute="top" id="7Zx-Y8-5uu"/>
+                                            <constraint firstItem="7Pa-hn-En2" firstAttribute="leading" secondItem="L3I-ph-afv" secondAttribute="leading" id="lB9-C2-cBu"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3im-S6-2Jc">
+                                        <rect key="frame" x="0.0" y="352" width="774" height="281"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fX5-u3-3ov">
+                                                <rect key="frame" x="0.0" y="0.0" width="774" height="281"/>
+                                                <connections>
+                                                    <action selector="toggleOn:" destination="KIg-ZE-lHV" eventType="touchUpInside" id="d36-9g-uia"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.6565525968" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="fX5-u3-3ov" firstAttribute="top" secondItem="3im-S6-2Jc" secondAttribute="top" id="bv9-bD-4qt"/>
+                                            <constraint firstItem="fX5-u3-3ov" firstAttribute="leading" secondItem="3im-S6-2Jc" secondAttribute="leading" id="gsP-pX-L6L"/>
+                                            <constraint firstAttribute="trailing" secondItem="fX5-u3-3ov" secondAttribute="trailing" id="jaY-RY-pxO"/>
+                                            <constraint firstAttribute="bottom" secondItem="fX5-u3-3ov" secondAttribute="bottom" id="lGt-Zr-X7u"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="L3I-ph-afv" firstAttribute="top" secondItem="QA7-q2-mlG" secondAttribute="top" id="0WZ-LJ-9LE"/>
                                     <constraint firstItem="bJE-PX-3u5" firstAttribute="leading" secondItem="Jtu-bD-ImG" secondAttribute="leading" id="4EO-oK-lbX"/>
                                     <constraint firstAttribute="trailing" secondItem="bJE-PX-3u5" secondAttribute="trailing" id="5CD-Bq-LFp"/>
+                                    <constraint firstItem="3im-S6-2Jc" firstAttribute="trailing" secondItem="bJE-PX-3u5" secondAttribute="trailing" id="6hL-rK-6C8"/>
+                                    <constraint firstItem="hW4-ky-eAe" firstAttribute="bottom" secondItem="QA7-q2-mlG" secondAttribute="bottom" id="7O5-cD-dQQ"/>
+                                    <constraint firstItem="hW4-ky-eAe" firstAttribute="trailing" secondItem="QA7-q2-mlG" secondAttribute="trailing" id="8RL-ES-P98"/>
+                                    <constraint firstItem="8yC-Z9-guG" firstAttribute="bottom" secondItem="3im-S6-2Jc" secondAttribute="bottom" id="98X-Sf-aqq"/>
+                                    <constraint firstItem="L3I-ph-afv" firstAttribute="trailing" secondItem="bJE-PX-3u5" secondAttribute="trailing" id="A6I-sp-wJ2"/>
+                                    <constraint firstItem="L3I-ph-afv" firstAttribute="leading" secondItem="bJE-PX-3u5" secondAttribute="leading" id="Hgz-xb-FZB"/>
+                                    <constraint firstItem="hW4-ky-eAe" firstAttribute="top" secondItem="QA7-q2-mlG" secondAttribute="top" id="NVn-Xu-ta3"/>
+                                    <constraint firstItem="hW4-ky-eAe" firstAttribute="leading" secondItem="QA7-q2-mlG" secondAttribute="leading" id="UjX-iz-8oh"/>
+                                    <constraint firstItem="3im-S6-2Jc" firstAttribute="leading" secondItem="bJE-PX-3u5" secondAttribute="leading" id="YBP-26-5e6"/>
                                     <constraint firstItem="bJE-PX-3u5" firstAttribute="centerY" secondItem="Jtu-bD-ImG" secondAttribute="centerY" id="e03-Wl-5x5"/>
+                                    <constraint firstItem="oW1-if-qlq" firstAttribute="bottom" secondItem="XMd-ZX-7Ze" secondAttribute="bottom" id="jQM-TG-FEe"/>
+                                    <constraint firstItem="oW1-if-qlq" firstAttribute="top" secondItem="XMd-ZX-7Ze" secondAttribute="top" id="qiz-26-gsd"/>
+                                    <constraint firstItem="oW1-if-qlq" firstAttribute="leading" secondItem="XMd-ZX-7Ze" secondAttribute="leading" id="r9Q-RR-ehS"/>
+                                    <constraint firstItem="oW1-if-qlq" firstAttribute="top" secondItem="3im-S6-2Jc" secondAttribute="top" id="v2s-QZ-RUt"/>
+                                    <constraint firstItem="Oak-zN-hTN" firstAttribute="bottom" secondItem="L3I-ph-afv" secondAttribute="bottom" id="yNm-5J-oTq"/>
+                                    <constraint firstItem="oW1-if-qlq" firstAttribute="trailing" secondItem="XMd-ZX-7Ze" secondAttribute="trailing" id="zC4-z1-6gq"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -717,23 +781,31 @@
                 </view>
                 <customObject id="82S-SV-9OZ" customClass="ColorController" customModule="HK" customModuleProvider="target">
                     <connections>
+                        <outlet property="blackOverlay" destination="L3I-ph-afv" id="ooU-W7-USe"/>
                         <outlet property="brightness" destination="wh8-Rn-5o6" id="Zsz-W0-hyx"/>
                         <outlet property="hue" destination="BbT-je-8n1" id="nuz-av-ztq"/>
                         <outlet property="saturation" destination="ups-mX-qHI" id="Kjl-Zy-oWQ"/>
                     </connections>
                 </customObject>
-                <customObject id="9Rj-TO-ZoG" userLabel="Living Room Clock Controller" customClass="ClockController" customModule="HK" customModuleProvider="target"/>
+                <customObject id="KIg-ZE-lHV" customClass="ColorController" customModule="HK" customModuleProvider="target">
+                    <connections>
+                        <outlet property="blackOverlay" destination="3im-S6-2Jc" id="rK1-Nn-RIo"/>
+                        <outlet property="brightness" destination="y4b-Rr-7Zq" id="tL1-ey-bNn"/>
+                        <outlet property="hue" destination="KlK-0R-t60" id="1zf-aR-20R"/>
+                        <outlet property="saturation" destination="YFM-Hx-gaX" id="jyB-Ky-ZtN"/>
+                    </connections>
+                </customObject>
+                <customObject id="9Rj-TO-ZoG" userLabel="Living Room Clock Controller" customClass="ClockController" customModule="HK" customModuleProvider="target">
+                    <connections>
+                        <outlet property="clock" destination="ZRd-UO-pR7" id="6Pi-G5-mKk"/>
+                        <outlet property="date" destination="zVJ-Gm-gAh" id="bww-sJ-gpe"/>
+                        <outlet property="dayName" destination="Oth-7e-DW1" id="iYV-la-XCG"/>
+                    </connections>
+                </customObject>
                 <customObject id="mQs-pB-EMC" userLabel="Stand By Clock Controller" customClass="ClockController" customModule="HK" customModuleProvider="target">
                     <connections>
                         <outlet property="clock" destination="QtX-2h-eNT" id="78j-rg-9Zg"/>
                         <outlet property="longDate" destination="qfJ-Wf-0CL" id="fYJ-Is-lRF"/>
-                    </connections>
-                </customObject>
-                <customObject id="KIg-ZE-lHV" customClass="ColorController" customModule="HK" customModuleProvider="target">
-                    <connections>
-                        <outlet property="brightness" destination="y4b-Rr-7Zq" id="tL1-ey-bNn"/>
-                        <outlet property="hue" destination="KlK-0R-t60" id="1zf-aR-20R"/>
-                        <outlet property="saturation" destination="YFM-Hx-gaX" id="jyB-Ky-ZtN"/>
                     </connections>
                 </customObject>
             </objects>

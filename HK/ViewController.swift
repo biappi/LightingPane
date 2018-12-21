@@ -110,6 +110,7 @@ protocol ColorControllerDelegateParent : AnyObject {
 protocol ColorControllerDelegate : AnyObject {
     var weakParent : ColorControllerDelegateParent? { get set }
     func sendColor(_ hsv: HSV)
+    func sendPower(_ power: Bool)
 }
 
 class ColorController : NSObject, ColorControllerDelegateParent {
@@ -117,6 +118,8 @@ class ColorController : NSObject, ColorControllerDelegateParent {
     @IBOutlet var brightness:   LCARSGradientSlider!
     @IBOutlet var hue:          LCARSGradientSlider!
     @IBOutlet var saturation:   LCARSGradientSlider!
+    
+    @IBOutlet var blackOverlay: UIView!
     
     var hsv = HSV.zero
     var power = false
@@ -150,6 +153,10 @@ class ColorController : NSObject, ColorControllerDelegateParent {
     
     func colorControllerDelegate(_ delegate: ColorControllerDelegate, didChangePower to: Bool) {
         power = false
+        
+        UIView.animate(withDuration: 0.3) {
+            self.blackOverlay.alpha = to ? 0 : 1
+        }
     }
 
     func changeColorFromSlider(h: CGFloat?, s: CGFloat?, v: CGFloat?) {
@@ -166,6 +173,14 @@ class ColorController : NSObject, ColorControllerDelegateParent {
 
     @IBAction func mainBrightnessChanged(_ sender: LCARSGradientSlider) {
         changeColorFromSlider(h: nil, s: nil, v: sender.theValue)
+    }
+    
+    @IBAction func toggleOn(_ sender: Any) {
+        delegate?.sendPower(true)
+    }
+    
+    @IBAction func toggleOff(_ sender: Any) {
+        delegate?.sendPower(false)
     }
     
 }
