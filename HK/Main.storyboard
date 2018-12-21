@@ -55,18 +55,35 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iPC-cc-nLV">
                                 <rect key="frame" x="0.0" y="150" width="200" height="618"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nMt-3b-gNY">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="366"/>
-                                        <color key="backgroundColor" red="0.79981082677841187" green="0.59866613149642944" blue="0.80074673891067505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="740" verticalCompressionResistancePriority="740" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="304" translatesAutoresizingMaskIntoConstraints="NO" id="nMt-3b-gNY">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="304"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMH-tB-ejK" customClass="LCARSUIButton" customModule="CoreLCARS">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="304"/>
+                                                <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="10"/>
+                                                <state key="normal" title="ALL LIGHTS OFF">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="lMH-tB-ejK" firstAttribute="leading" secondItem="nMt-3b-gNY" secondAttribute="leading" id="IV7-hV-y4q"/>
+                                            <constraint firstAttribute="bottom" secondItem="lMH-tB-ejK" secondAttribute="bottom" id="NCL-sE-qBX"/>
+                                            <constraint firstItem="lMH-tB-ejK" firstAttribute="top" secondItem="nMt-3b-gNY" secondAttribute="top" id="j64-nA-6ZP"/>
+                                            <constraint firstAttribute="trailing" secondItem="lMH-tB-ejK" secondAttribute="trailing" id="n6O-JI-cEh"/>
+                                        </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oo8-5M-LvL">
-                                        <rect key="frame" x="0.0" y="376" width="200" height="242"/>
+                                    <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="304" translatesAutoresizingMaskIntoConstraints="NO" id="oo8-5M-LvL">
+                                        <rect key="frame" x="0.0" y="314" width="200" height="304"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="KMT-0M-8dC">
-                                                <rect key="frame" x="-60" y="50" width="240" height="152"/>
+                                                <rect key="frame" x="-60" y="50" width="240" height="214"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oth-7e-DW1" customClass="LCARSLabel" customModule="CoreLCARS">
-                                                        <rect key="frame" x="176.5" y="0.0" width="63.5" height="21.5"/>
+                                                    <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Oth-7e-DW1" customClass="LCARSLabel" customModule="CoreLCARS">
+                                                        <rect key="frame" x="176.5" y="0.0" width="63.5" height="55.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="text" value="Monday"/>
@@ -78,8 +95,8 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVJ-Gm-gAh" customClass="LCARSLabel" customModule="CoreLCARS">
-                                                        <rect key="frame" x="138" y="32.5" width="102" height="22"/>
+                                                    <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="102" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="zVJ-Gm-gAh" customClass="LCARSLabel" customModule="CoreLCARS">
+                                                        <rect key="frame" x="138" y="66.5" width="102" height="50"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="text" value="DECEMBER 23"/>
@@ -92,14 +109,14 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oCd-Cn-v4e">
-                                                        <rect key="frame" x="0.0" y="65.5" width="240" height="10"/>
+                                                        <rect key="frame" x="0.0" y="127.5" width="240" height="10"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="10" id="gi9-L6-PAk"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZRd-UO-pR7" customClass="LCARSLabel" customModule="CoreLCARS">
-                                                        <rect key="frame" x="106.5" y="86.5" width="133.5" height="65.5"/>
+                                                    <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="133.5" placeholderIntrinsicHeight="65.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZRd-UO-pR7" customClass="LCARSLabel" customModule="CoreLCARS">
+                                                        <rect key="frame" x="106.5" y="148.5" width="133.5" height="65.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="text" value="00:00"/>
@@ -142,7 +159,7 @@
                                                             <constraint firstAttribute="width" secondItem="lfe-ji-j7D" secondAttribute="height" id="vxj-Kk-uE4"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bwB-a8-zRp" customClass="LCARSLabel" customModule="CoreLCARS">
+                                                    <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="bwB-a8-zRp" customClass="LCARSLabel" customModule="CoreLCARS">
                                                         <rect key="frame" x="44.5" y="0.0" width="187.5" height="36.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <userDefinedRuntimeAttributes>
@@ -332,7 +349,7 @@
                                                             <constraint firstAttribute="width" secondItem="2R3-YS-inT" secondAttribute="height" id="2Us-WS-Fv1"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="174" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="tle-Ug-Bs1" customClass="LCARSLabel" customModule="CoreLCARS">
+                                                    <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="tle-Ug-Bs1" customClass="LCARSLabel" customModule="CoreLCARS">
                                                         <rect key="frame" x="44.5" y="0.0" width="111.5" height="36.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <userDefinedRuntimeAttributes>
@@ -535,10 +552,166 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="accentController" destination="KIg-ZE-lHV" id="jpt-ce-Jeu"/>
+                        <outlet property="clockController" destination="9Rj-TO-ZoG" id="VBk-wW-tE8"/>
                         <outlet property="colorController" destination="82S-SV-9OZ" id="gZb-MZ-kv8"/>
+                        <outlet property="standbyView" destination="onq-Lw-6mk" id="WJF-JW-x0p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YHX-xL-P8n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="onq-Lw-6mk">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="oFp-Kj-GTA" customClass="LCARSTitle" customModule="CoreLCARS">
+                            <rect key="frame" x="0.0" y="20" width="1024" height="43.5"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <accessibility key="accessibilityConfiguration">
+                                <accessibilityTraits key="traits" notEnabled="YES"/>
+                            </accessibility>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="LIGHTING PANEL"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="textSize">
+                                    <real key="value" value="60"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                    <real key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="textBefore" value="NO"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="colorStartCap">
+                                    <color key="value" red="0.30277273058891296" green="0.38168472051620483" blue="0.51870226860046387" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="colorEndCap">
+                                    <color key="value" red="0.26387915015220642" green="0.33495825529098511" blue="0.4553757905960083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="colorBar">
+                                    <color key="value" red="0.39290848369999998" green="0.42929667230000002" blue="0.79872721430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="colorText">
+                                    <color key="value" red="0.74467706680297852" green="0.73851603269577026" blue="0.87524634599685669" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpJ-YV-caX" userLabel="Content">
+                            <rect key="frame" x="0.0" y="103.5" width="1024" height="581"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="ihs-NA-zeL">
+                                    <rect key="frame" x="327" y="56" width="370.5" height="469"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="twn-6y-Vfb">
+                                            <rect key="frame" x="0.0" y="0.0" width="370.5" height="117.5"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rip-eb-uTw" customClass="LCARSLabel" customModule="CoreLCARS">
+                                                    <rect key="frame" x="77.5" y="0.0" width="215" height="58.5"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="text" value="LIGHTS OFF"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="size">
+                                                            <real key="value" value="80"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                            <color key="value" red="0.29103508591651917" green="0.3701140284538269" blue="0.49884986877441406" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ae-NX-MJM" customClass="LCARSLabel" customModule="CoreLCARS">
+                                                    <rect key="frame" x="47.5" y="88.5" width="275.5" height="29"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="text" value="TAP SCREEN TO LIGHT ROOM"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="size">
+                                                            <real key="value" value="40"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                            <color key="value" red="0.29103508591651917" green="0.3701140284538269" blue="0.49884986877441406" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="zRj-XP-4bF">
+                                            <rect key="frame" x="0.0" y="217.5" width="370.5" height="251.5"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QtX-2h-eNT" customClass="LCARSLabel" customModule="CoreLCARS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="370.5" height="182.5"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="text" value="00:00"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="size">
+                                                            <real key="value" value="250"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                            <color key="value" red="0.74467706680000001" green="0.73851603269999999" blue="0.87524634599999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfJ-Wf-0CL" customClass="LCARSLabel" customModule="CoreLCARS">
+                                                    <rect key="frame" x="56.5" y="222.5" width="257" height="29"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="text" value="MONDAY • 23 DECEMBER"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="size">
+                                                            <real key="value" value="40"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                            <color key="value" red="0.74467706680000001" green="0.73851603269999999" blue="0.87524634599999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <accessibility key="accessibilityConfiguration">
+                                <accessibilityTraits key="traits" notEnabled="YES"/>
+                            </accessibility>
+                            <constraints>
+                                <constraint firstItem="ihs-NA-zeL" firstAttribute="centerY" secondItem="fpJ-YV-caX" secondAttribute="centerY" id="7a6-r8-jQx"/>
+                                <constraint firstItem="ihs-NA-zeL" firstAttribute="centerX" secondItem="fpJ-YV-caX" secondAttribute="centerX" id="X94-zC-STq"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="REK-rV-PDn" customClass="LCARSTitle" customModule="CoreLCARS">
+                            <rect key="frame" x="0.0" y="724.5" width="1024" height="43.5"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <accessibility key="accessibilityConfiguration">
+                                <accessibilityTraits key="traits" notEnabled="YES"/>
+                            </accessibility>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="SYSTEM STANDBY"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="textSize">
+                                    <real key="value" value="60"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                    <real key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="textBefore" value="YES"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="colorStartCap">
+                                    <color key="value" red="0.30277273059999998" green="0.38168472050000002" blue="0.51870226860000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="colorEndCap">
+                                    <color key="value" red="0.26387915020000002" green="0.33495825530000001" blue="0.4553757906" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="colorBar">
+                                    <color key="value" red="0.39290848369999998" green="0.42929667230000002" blue="0.79872721430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="colorText">
+                                    <color key="value" red="0.74467706680000001" green="0.73851603269999999" blue="0.87524634599999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="REK-rV-PDn" firstAttribute="trailing" secondItem="Btz-7O-BAa" secondAttribute="trailing" id="2Tb-cq-Qc1"/>
+                        <constraint firstItem="Btz-7O-BAa" firstAttribute="trailing" secondItem="oFp-Kj-GTA" secondAttribute="trailing" id="7HV-pl-PiR"/>
+                        <constraint firstItem="Btz-7O-BAa" firstAttribute="bottom" secondItem="REK-rV-PDn" secondAttribute="bottom" id="JtE-F4-CZQ"/>
+                        <constraint firstItem="oFp-Kj-GTA" firstAttribute="top" secondItem="Btz-7O-BAa" secondAttribute="top" id="TIM-5o-U5m"/>
+                        <constraint firstItem="Btz-7O-BAa" firstAttribute="trailing" secondItem="fpJ-YV-caX" secondAttribute="trailing" id="bAX-xn-Yrp"/>
+                        <constraint firstItem="fpJ-YV-caX" firstAttribute="top" secondItem="oFp-Kj-GTA" secondAttribute="bottom" constant="40" id="jsA-0i-cJH"/>
+                        <constraint firstItem="fpJ-YV-caX" firstAttribute="leading" secondItem="Btz-7O-BAa" secondAttribute="leading" id="lWS-ft-01o"/>
+                        <constraint firstItem="REK-rV-PDn" firstAttribute="leading" secondItem="Btz-7O-BAa" secondAttribute="leading" id="rm5-x9-n3C"/>
+                        <constraint firstItem="oFp-Kj-GTA" firstAttribute="leading" secondItem="Btz-7O-BAa" secondAttribute="leading" id="tXf-sf-9Fl"/>
+                        <constraint firstItem="REK-rV-PDn" firstAttribute="top" secondItem="fpJ-YV-caX" secondAttribute="bottom" constant="40" id="ysx-EP-Qp3"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="Btz-7O-BAa"/>
+                </view>
                 <customObject id="82S-SV-9OZ" customClass="ColorController" customModule="HK" customModuleProvider="target">
                     <connections>
                         <outlet property="brightness" destination="wh8-Rn-5o6" id="Zsz-W0-hyx"/>
@@ -546,18 +719,18 @@
                         <outlet property="saturation" destination="ups-mX-qHI" id="Kjl-Zy-oWQ"/>
                     </connections>
                 </customObject>
+                <customObject id="9Rj-TO-ZoG" userLabel="Living Room Clock Controller" customClass="ClockController" customModule="HK" customModuleProvider="target"/>
+                <customObject id="mQs-pB-EMC" userLabel="Stand By Clock Controller" customClass="ClockController" customModule="HK" customModuleProvider="target">
+                    <connections>
+                        <outlet property="clock" destination="QtX-2h-eNT" id="78j-rg-9Zg"/>
+                        <outlet property="longDate" destination="qfJ-Wf-0CL" id="fYJ-Is-lRF"/>
+                    </connections>
+                </customObject>
                 <customObject id="KIg-ZE-lHV" customClass="ColorController" customModule="HK" customModuleProvider="target">
                     <connections>
                         <outlet property="brightness" destination="y4b-Rr-7Zq" id="tL1-ey-bNn"/>
                         <outlet property="hue" destination="KlK-0R-t60" id="1zf-aR-20R"/>
                         <outlet property="saturation" destination="YFM-Hx-gaX" id="jyB-Ky-ZtN"/>
-                    </connections>
-                </customObject>
-                <customObject id="ZYU-qT-W4F" customClass="ClockController" customModule="HK" customModuleProvider="target">
-                    <connections>
-                        <outlet property="date" destination="zVJ-Gm-gAh" id="V8q-OO-mHT"/>
-                        <outlet property="dayName" destination="Oth-7e-DW1" id="Fxb-Ma-FXv"/>
-                        <outlet property="time" destination="ZRd-UO-pR7" id="vmE-95-6j0"/>
                     </connections>
                 </customObject>
             </objects>
