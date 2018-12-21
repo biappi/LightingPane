@@ -347,8 +347,8 @@ class ViewController: UIViewController, HMHomeManagerDelegate {
 
     let hm = HMHomeManager()
     
-    let mainColorControllerDelegate   = DoubleAccessoryLight()
-    let accentColorControllerDelegate = AccessoryLight()
+    let mainLight   = DoubleAccessoryLight()
+    let accentLight = AccessoryLight()
     
     @IBOutlet var clockController:  ClockController!
     @IBOutlet var colorController:  ColorController!
@@ -376,8 +376,8 @@ class ViewController: UIViewController, HMHomeManagerDelegate {
 
         view.layoutIfNeeded()
         
-        colorController.light  = mainColorControllerDelegate
-        accentController.light = accentColorControllerDelegate
+        colorController.light  = mainLight
+        accentController.light = accentLight
         
         let tapGesture = UITapGestureRecognizer()
         tapGesture.addTarget(self, action: #selector(standbyViewDidTap))
@@ -392,11 +392,11 @@ class ViewController: UIViewController, HMHomeManagerDelegate {
             view.bottomAnchor.constraint(equalTo: standbyView.bottomAnchor),
         ])
         
-        mainColorControllerDelegate.onChangePower = {
+        mainLight.onChangePower = {
             [weak self] in self?.powerMain = $0
         }
         
-        accentColorControllerDelegate.onChangePower = {
+        accentLight.onChangePower = {
             [weak self] in self?.powerAccent = $0
         }
     }
@@ -412,24 +412,24 @@ class ViewController: UIViewController, HMHomeManagerDelegate {
         roadsideService     = services.first { $0.uniqueIdentifier == roadsideUUID     }
         internalsideService = services.first { $0.uniqueIdentifier == internalsideUUID }
 
-        mainColorControllerDelegate.accessoryDelegate1.service = roadsideService
-        mainColorControllerDelegate.accessoryDelegate2.service = internalsideService
+        mainLight.accessoryDelegate1.service = roadsideService
+        mainLight.accessoryDelegate2.service = internalsideService
         
-        accentColorControllerDelegate.service = lightstripService
+        accentLight.service = lightstripService
         
         dump(services.map { "\($0.name) \($0.uniqueIdentifier) \($0.localizedDescription) \($0.serviceType)" })
         dump(roadsideService?.characteristics.map { "\($0.characteristicType) \($0.metadata!) \($0.description)" })
     }
     
     @objc func standbyViewDidTap() {
-        mainColorControllerDelegate.sendPower(true)
-        accentColorControllerDelegate.sendPower(true)
+        mainLight.sendPower(true)
+        accentLight.sendPower(true)
         hideStandbyView()
     }
 
     @IBAction func allLightsOffDidTap(_ sender: Any) {
-        mainColorControllerDelegate.sendPower(false)
-        accentColorControllerDelegate.sendPower(false)
+        mainLight.sendPower(false)
+        accentLight.sendPower(false)
     }
     
     // -- //
