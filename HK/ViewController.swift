@@ -360,6 +360,8 @@ class ViewController: UIViewController, HMHomeManagerDelegate {
     var roadsideService:     HMService?
     var internalsideService: HMService?
 
+    var savedBrightness : CGFloat = 1
+    
     var powerMain = false {
         didSet { lightsPowerDidChange() }
     }
@@ -433,12 +435,15 @@ class ViewController: UIViewController, HMHomeManagerDelegate {
     // -- //
     
     private func showStandbyView() {
+        savedBrightness = UIScreen.main.brightness
+        UIScreen.main.brightness = 0
         UIView.animate(withDuration: 0.3) {
             self.standbyView.alpha = 1
         }
     }
     
     private func hideStandbyView() {
+        UIScreen.main.brightness = savedBrightness
         UIView.animate(withDuration: 0.3) {
             self.standbyView.alpha = 0
         }
