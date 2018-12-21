@@ -299,7 +299,7 @@ class AccessoryLight : NSObject, HMAccessoryDelegate, Light {
     }
 }
 
-class DoubleAccessoryColorControllerDelegate : NSObject, Light, ColorControllerDelegateParent {
+class DoubleAccessoryLight : NSObject, Light, ColorControllerDelegateParent {
     
     weak var weakParent: ColorControllerDelegateParent?
     
@@ -347,7 +347,7 @@ class ViewController: UIViewController, HMHomeManagerDelegate {
 
     let hm = HMHomeManager()
     
-    let mainColorControllerDelegate   = DoubleAccessoryColorControllerDelegate()
+    let mainColorControllerDelegate   = DoubleAccessoryLight()
     let accentColorControllerDelegate = AccessoryLight()
     
     @IBOutlet var clockController:  ClockController!
