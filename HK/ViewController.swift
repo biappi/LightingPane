@@ -113,7 +113,7 @@ protocol Light : AnyObject {
     func sendPower(_ power: Bool)
 }
 
-class ColorController : NSObject, LightObserver {
+class LightPanelController : NSObject, LightObserver {
     
     @IBOutlet var brightness:   LCARSGradientSlider!
     @IBOutlet var hue:          LCARSGradientSlider!
@@ -351,8 +351,8 @@ class ViewController: UIViewController, HMHomeManagerDelegate {
     let accentLight = AccessoryLight()
     
     @IBOutlet var clockController:  ClockController!
-    @IBOutlet var colorController:  ColorController!
-    @IBOutlet var accentController: ColorController!
+    @IBOutlet var colorController:  LightPanelController!
+    @IBOutlet var accentController: LightPanelController!
     
     @IBOutlet var standbyView: UIView!
     
