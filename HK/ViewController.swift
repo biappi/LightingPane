@@ -219,7 +219,7 @@ class Debouncer<T> : NSObject {
 
 }
 
-class AccessoryColorControllerDelegate : NSObject, HMAccessoryDelegate, Light {
+class AccessoryLight : NSObject, HMAccessoryDelegate, Light {
     weak var weakParent: ColorControllerDelegateParent?
     
     var powerCharacteristic      : HMCharacteristic?
@@ -303,8 +303,8 @@ class DoubleAccessoryColorControllerDelegate : NSObject, Light, ColorControllerD
     
     weak var weakParent: ColorControllerDelegateParent?
     
-    var accessoryDelegate1 = AccessoryColorControllerDelegate()
-    var accessoryDelegate2 = AccessoryColorControllerDelegate()
+    var accessoryDelegate1 = AccessoryLight()
+    var accessoryDelegate2 = AccessoryLight()
     
     var onChangePower : (Bool) -> Void = { _ in }
     
@@ -348,7 +348,7 @@ class ViewController: UIViewController, HMHomeManagerDelegate {
     let hm = HMHomeManager()
     
     let mainColorControllerDelegate   = DoubleAccessoryColorControllerDelegate()
-    let accentColorControllerDelegate = AccessoryColorControllerDelegate()
+    let accentColorControllerDelegate = AccessoryLight()
     
     @IBOutlet var clockController:  ClockController!
     @IBOutlet var colorController:  ColorController!
