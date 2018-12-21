@@ -303,8 +303,8 @@ class DoubleAccessoryLight : NSObject, Light, LightObserver {
     
     weak var weakParent: LightObserver?
     
-    var accessoryDelegate1 = AccessoryLight()
-    var accessoryDelegate2 = AccessoryLight()
+    var light1 = AccessoryLight()
+    var light2 = AccessoryLight()
     
     var onChangePower : (Bool) -> Void = { _ in }
     
@@ -314,31 +314,31 @@ class DoubleAccessoryLight : NSObject, Light, LightObserver {
     override init() {
         super.init()
         
-        accessoryDelegate1.weakParent = self
-        accessoryDelegate2.weakParent = self
+        light1.weakParent = self
+        light2.weakParent = self
     }
     
     func sendColor(_ hsv: HSV) {
-        accessoryDelegate1.sendColor(hsv)
-        accessoryDelegate2.sendColor(hsv)
+        light1.sendColor(hsv)
+        light2.sendColor(hsv)
     }
     
     func light(_ delegate: Light, didChangeColor to: HSV) {
-        guard delegate === accessoryDelegate1 else { return }
+        guard delegate === light1 else { return }
         weakParent?.light(self, didChangeColor: to)
     }
     
     func light(_ delegate: Light, didChangePower to: Bool) {
-        if      delegate === accessoryDelegate1 { power1 = to }
-        else if delegate === accessoryDelegate2 { power2 = to }
+        if      delegate === light1 { power1 = to }
+        else if delegate === light2 { power2 = to }
         
         weakParent?.light(self, didChangePower: power1 || power2)
         onChangePower(power1 || power2)
     }
     
     func sendPower(_ power: Bool) {
-        accessoryDelegate1.sendPower(power)
-        accessoryDelegate2.sendPower(power)
+        light1.sendPower(power)
+        light2.sendPower(power)
     }
     
 }
@@ -412,8 +412,8 @@ class ViewController: UIViewController, HMHomeManagerDelegate {
         roadsideService     = services.first { $0.uniqueIdentifier == roadsideUUID     }
         internalsideService = services.first { $0.uniqueIdentifier == internalsideUUID }
 
-        mainLight.accessoryDelegate1.service = roadsideService
-        mainLight.accessoryDelegate2.service = internalsideService
+        mainLight.light1.service = roadsideService
+        mainLight.light2.service = internalsideService
         
         accentLight.service = lightstripService
         
