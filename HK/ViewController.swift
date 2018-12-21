@@ -103,11 +103,11 @@ class ClockController : NSObject {
 }
 
 protocol ColorControllerDelegateParent : AnyObject {
-    func colorControllerDelegate(_ delegate: ColorControllerDelegate, didChangeColor to: HSV)
-    func colorControllerDelegate(_ delegate: ColorControllerDelegate, didChangePower to: Bool)
+    func colorControllerDelegate(_ delegate: Light, didChangeColor to: HSV)
+    func colorControllerDelegate(_ delegate: Light, didChangePower to: Bool)
 }
 
-protocol ColorControllerDelegate : AnyObject {
+protocol Light : AnyObject {
     var weakParent : ColorControllerDelegateParent? { get set }
     func sendColor(_ hsv: HSV)
     func sendPower(_ power: Bool)
@@ -124,7 +124,7 @@ class ColorController : NSObject, ColorControllerDelegateParent {
     var hsv = HSV.zero
     var power = false
     
-    weak var delegate : ColorControllerDelegate? {
+    weak var delegate : Light? {
         didSet {
             delegate?.weakParent = self
         }
@@ -141,7 +141,7 @@ class ColorController : NSObject, ColorControllerDelegateParent {
             .map { hsv.changing(h: nil, s: nil, v: CGFloat($0) / 10).cgColor }
     }
     
-    func colorControllerDelegate(_ delegate: ColorControllerDelegate, didChangeColor to: HSV) {
+    func colorControllerDelegate(_ delegate: Light, didChangeColor to: HSV) {
         hsv = to
         
         updateGradients(hsv: to)
@@ -151,7 +151,7 @@ class ColorController : NSObject, ColorControllerDelegateParent {
         brightness.theValue = to.v
     }
     
-    func colorControllerDelegate(_ delegate: ColorControllerDelegate, didChangePower to: Bool) {
+    func colorControllerDelegate(_ delegate: Light, didChangePower to: Bool) {
         power = false
         
         UIView.animate(withDuration: 0.3) {
@@ -219,7 +219,7 @@ class Debouncer<T> : NSObject {
 
 }
 
-class AccessoryColorControllerDelegate : NSObject, HMAccessoryDelegate, ColorControllerDelegate {
+class AccessoryColorControllerDelegate : NSObject, HMAccessoryDelegate, Light {
     weak var weakParent: ColorControllerDelegateParent?
     
     var powerCharacteristic      : HMCharacteristic?
@@ -299,7 +299,7 @@ class AccessoryColorControllerDelegate : NSObject, HMAccessoryDelegate, ColorCon
     }
 }
 
-class DoubleAccessoryColorControllerDelegate : NSObject, ColorControllerDelegate, ColorControllerDelegateParent {
+class DoubleAccessoryColorControllerDelegate : NSObject, Light, ColorControllerDelegateParent {
     
     weak var weakParent: ColorControllerDelegateParent?
     
@@ -323,12 +323,12 @@ class DoubleAccessoryColorControllerDelegate : NSObject, ColorControllerDelegate
         accessoryDelegate2.sendColor(hsv)
     }
     
-    func colorControllerDelegate(_ delegate: ColorControllerDelegate, didChangeColor to: HSV) {
+    func colorControllerDelegate(_ delegate: Light, didChangeColor to: HSV) {
         guard delegate === accessoryDelegate1 else { return }
         weakParent?.colorControllerDelegate(self, didChangeColor: to)
     }
     
-    func colorControllerDelegate(_ delegate: ColorControllerDelegate, didChangePower to: Bool) {
+    func colorControllerDelegate(_ delegate: Light, didChangePower to: Bool) {
         if      delegate === accessoryDelegate1 { power1 = to }
         else if delegate === accessoryDelegate2 { power2 = to }
         
