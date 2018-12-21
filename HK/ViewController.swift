@@ -279,6 +279,9 @@ class AccessoryColorControllerDelegate : NSObject, HMAccessoryDelegate, ColorCon
         brightnessCharacteristic?.writeValue(Int(color.v * 100)) { e in self.changeColorFromAccessory(); printError(e) }
     }
     
+    func sendPower(_ power: Bool) {
+        powerCharacteristic?.writeValue(power) { e in self.changePowerFromAccessory(); printError(e) }
+    }
 }
 
 class DoubleAccessoryColorControllerDelegate : NSObject, ColorControllerDelegate, ColorControllerDelegateParent {
@@ -316,6 +319,11 @@ class DoubleAccessoryColorControllerDelegate : NSObject, ColorControllerDelegate
         
         weakParent?.colorControllerDelegate(self, didChangePower: power1 || power2)
         onChangePower(power1 || power2)
+    }
+    
+    func sendPower(_ power: Bool) {
+        accessoryDelegate1.sendPower(power)
+        accessoryDelegate2.sendPower(power)
     }
     
 }
@@ -397,9 +405,18 @@ class ViewController: UIViewController, HMHomeManagerDelegate {
     }
     
     @objc func standbyViewDidTap() {
+        mainColorControllerDelegate.sendPower(true)
+        accentColorControllerDelegate.sendPower(true)
         hideStandbyView()
     }
 
+    @IBAction func allLightsOffDidTap(_ sender: Any) {
+        mainColorControllerDelegate.sendPower(false)
+        accentColorControllerDelegate.sendPower(false)
+    }
+    
+    // -- //
+    
     private func showStandbyView() {
         UIView.animate(withDuration: 0.3) {
             self.standbyView.alpha = 1
@@ -411,6 +428,8 @@ class ViewController: UIViewController, HMHomeManagerDelegate {
             self.standbyView.alpha = 0
         }
     }
+    
+    // -- //
     
     func lightsPowerDidChange() {
         let inStandby    = standbyView.alpha == 1
