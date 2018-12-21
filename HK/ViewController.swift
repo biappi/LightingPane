@@ -124,9 +124,9 @@ class ColorController : NSObject, ColorControllerDelegateParent {
     var hsv = HSV.zero
     var power = false
     
-    weak var delegate : Light? {
+    weak var light : Light? {
         didSet {
-            delegate?.weakParent = self
+            light?.weakParent = self
         }
     }
     
@@ -160,7 +160,7 @@ class ColorController : NSObject, ColorControllerDelegateParent {
     }
 
     func changeColorFromSlider(h: CGFloat?, s: CGFloat?, v: CGFloat?) {
-        delegate?.sendColor(hsv.changing(h: h, s: s, v: v))
+        light?.sendColor(hsv.changing(h: h, s: s, v: v))
     }
     
     @IBAction func mainHueChanged(_ sender: LCARSGradientSlider) {
@@ -176,11 +176,11 @@ class ColorController : NSObject, ColorControllerDelegateParent {
     }
     
     @IBAction func toggleOn(_ sender: Any) {
-        delegate?.sendPower(true)
+        light?.sendPower(true)
     }
     
     @IBAction func toggleOff(_ sender: Any) {
-        delegate?.sendPower(false)
+        light?.sendPower(false)
     }
     
 }
@@ -376,8 +376,8 @@ class ViewController: UIViewController, HMHomeManagerDelegate {
 
         view.layoutIfNeeded()
         
-        colorController.delegate  = mainColorControllerDelegate
-        accentController.delegate = accentColorControllerDelegate
+        colorController.light  = mainColorControllerDelegate
+        accentController.light = accentColorControllerDelegate
         
         let tapGesture = UITapGestureRecognizer()
         tapGesture.addTarget(self, action: #selector(standbyViewDidTap))
