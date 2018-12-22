@@ -569,8 +569,6 @@ public class LCARSTitle : UIView {
             labelLeft.setContentCompressionResistancePriority(.required, for: .vertical)
 
             labelRight.text = text
-
-            labelRight.text = text
             
             labelRight.setContentHuggingPriority(.required, for: .horizontal)
             labelRight.setContentHuggingPriority(.required, for: .vertical)
