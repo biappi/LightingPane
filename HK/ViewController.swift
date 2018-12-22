@@ -432,9 +432,9 @@ class ViewController: UIViewController, HMHomeManagerDelegate {
     func homeManagerDidUpdateHomes(_ manager: HMHomeManager) {
         let services = manager.primaryHome?.accessories.flatMap { $0.services } ?? []
         
-        lightstripService   = services.first { $0.uniqueIdentifier == lightstripUUID   }
-        roadsideService     = services.first { $0.uniqueIdentifier == roadsideUUID     }
-        internalsideService = services.first { $0.uniqueIdentifier == internalsideUUID }
+        lightstripService   = services.first { $0.name == lightstripName   }
+        roadsideService     = services.first { $0.name == roadsideName     }
+        internalsideService = services.first { $0.name == internalsideName }
 
         mainLight.light1.service = roadsideService
         mainLight.light2.service = internalsideService
@@ -489,6 +489,6 @@ class ViewController: UIViewController, HMHomeManagerDelegate {
     }
 }
 
-let lightstripUUID   = UUID(uuidString: "083ED634-35E6-50F3-9444-486B2D49FCA4")! // UUID(uuidString: "C10389A5-B9BC-53B0-8F24-5FF4685AE82E")!
-let roadsideUUID     = UUID(uuidString: "A7A76011-61C9-5D48-8251-AF5D14636E6B")! // UUID(uuidString: "1AA24C16-346D-5936-BE54-20A6CB0118C3")! // UUID(uuidString: "363EFF22-CA03-5ED0-8304-C077CB20D9D8")!
-let internalsideUUID = UUID(uuidString: "722F1997-53F2-58BE-A2CA-10D807D0A4ED")! // UUID(uuidString: "F3FD5A39-513F-52CD-85B2-3FC5D5915826")! // UUID(uuidString: "885D77EB-4292-5C34-955A-48F261BDB7AD")!
+let lightstripName   = "Lightstrip"
+let roadsideName     = "Road side"
+let internalsideName = "Internal side"
