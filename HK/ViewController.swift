@@ -183,20 +183,12 @@ class LightPanelController : NSObject, LightObserver {
         }
     }
 
-    func changeColorFromSlider(h: CGFloat?, s: CGFloat?, v: CGFloat?) {
+    @IBAction func changeColorFromSlider(sender: LCARSGradientSlider) {
+        let h = sender === hue        ? sender.theValue : nil
+        let s = sender === saturation ? sender.theValue : nil
+        let v = sender === brightness ? sender.theValue : nil
+        
         light?.sendColor(hsv.changing(h: h, s: s, v: v))
-    }
-    
-    @IBAction func mainHueChanged(_ sender: LCARSGradientSlider) {
-        changeColorFromSlider(h: sender.theValue, s: nil, v: nil)
-    }
-    
-    @IBAction func mainSaturationChanged(_ sender: LCARSGradientSlider) {
-        changeColorFromSlider(h: nil, s: sender.theValue, v: nil)
-    }
-
-    @IBAction func mainBrightnessChanged(_ sender: LCARSGradientSlider) {
-        changeColorFromSlider(h: nil, s: nil, v: sender.theValue)
     }
     
     @IBAction func toggleOn(_ sender: Any) {
