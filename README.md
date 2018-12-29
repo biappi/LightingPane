@@ -35,6 +35,8 @@ deployment target.
 CoreLCARS.framework
 -------------------
 
+<img src="/Contrib/corelcars.png" width="600px">
+
 Like many, I am a fan of Star Trek, and having to create a touch control
 UI hanging off a wall (and having very passable design skills) I took
 the opportunity to replicate the look of the show LCARS panel.
