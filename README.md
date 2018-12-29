@@ -22,8 +22,7 @@ touches of the panel.
 My Installation
 ---------------
 
-![Lights On Screen](/Contrib/lights-on.jpeg)
-![Lights Off Screen](/Contrib/lights-off.jpeg)
+<img src="/Contrib/lights-on.jpeg" width="300px"> <img src="/Contrib/lights-off.jpeg" width="300px">
 
 I control two lights with this panel, the main room illumination, using
 two HomeKit lamps, and an accent / mood lamp. As I wish to still manually
