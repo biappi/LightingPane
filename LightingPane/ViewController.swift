@@ -364,7 +364,7 @@ class ViewController: UIViewController, HMHomeManagerDelegate {
     let hm = HMHomeManager()
     
     let mainLight   = DoubleAccessoryLight()
-    let accentLight = AccessoryLight()
+    let accentLight = DoubleAccessoryLight()
     
     @IBOutlet var clockController:  ClockController!
     @IBOutlet var colorController:  LightPanelController!
@@ -372,9 +372,10 @@ class ViewController: UIViewController, HMHomeManagerDelegate {
     
     @IBOutlet var standbyView: UIView!
     
-    var lightstripService:   HMService?
-    var roadsideService:     HMService?
-    var internalsideService: HMService?
+    var lightstripInnerService: HMService?
+    var lightstripRoadService:  HMService?
+    var roadsideService:        HMService?
+    var internalsideService:    HMService?
 
     var savedBrightness : CGFloat = 1
     
@@ -423,18 +424,19 @@ class ViewController: UIViewController, HMHomeManagerDelegate {
 
     func homeManagerDidUpdateHomes(_ manager: HMHomeManager) {
         let services = manager.primaryHome?.accessories.flatMap { $0.services } ?? []
-        
-        lightstripService   = services.first { $0.name == lightstripName   }
-        roadsideService     = services.first { $0.name == roadsideName     }
-        internalsideService = services.first { $0.name == internalsideName }
+        let lights = services.filter { $0.serviceType == HMServiceTypeLightbulb }
+
+        lightstripRoadService   = lights.first { $0.name == lightstripRoad   }
+        lightstripInnerService  = lights.first { $0.name == lightstripInner  }
+
+        roadsideService         = lights.first { $0.name == roadsideName     }
+        internalsideService     = lights.first { $0.name == internalsideName }
 
         mainLight.light1.service = roadsideService
         mainLight.light2.service = internalsideService
         
-        accentLight.service = lightstripService
-        
-        dump(services.map { "\($0.name) \($0.uniqueIdentifier) \($0.localizedDescription) \($0.serviceType)" })
-        dump(roadsideService?.characteristics.map { "\($0.characteristicType) \($0.metadata!) \($0.description)" })
+        accentLight.light1.service = lightstripRoadService
+        accentLight.light2.service = lightstripInnerService
     }
     
     @objc func standbyViewDidTap() {
@@ -481,6 +483,7 @@ class ViewController: UIViewController, HMHomeManagerDelegate {
     }
 }
 
-let lightstripName   = "Lightstrip"
+let lightstripInner  = "Light strip inner"
+let lightstripRoad   = "Light strip street"
 let roadsideName     = "Road side"
 let internalsideName = "Internal side"
