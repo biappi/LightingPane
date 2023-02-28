@@ -723,7 +723,11 @@ public class LCARSGradientSlider : UIControl {
     let panRecognizer = UIPanGestureRecognizer()
     
     let caret = UIView()
-    
+
+    public var progress: CGFloat = 0 {
+        didSet { setNeedsLayout() }
+    }
+
     public var slidingActionStarted : (Bool) -> Void = { _ in }
     
     public var colors : [CGColor] {
@@ -765,21 +769,39 @@ public class LCARSGradientSlider : UIControl {
             panRecognizer.addTarget(self, action: #selector(onPan))
             self.addGestureRecognizer(panRecognizer)
         }
-        
-        caret.frame = CGRect(x: 0, y: 0, width: bounds.width / 10, height: bounds.height)
-        
+
+        caret.frame = CGRect(
+            origin: CGPoint(
+                x: caretCenterFor(progress: progress),
+                y: 0),
+            size: CGSize(
+                width: bounds.width / 10,
+                height: bounds.height
+            )
+        )
+
         gradientLayer.frame = layer.bounds
     }
-    
+
+    var caretWidth:  CGFloat { caret.frame.size.width }
+    var sliderWidth: CGFloat { bounds.size.width  - caretWidth }
+
+    func progressFor(center: CGFloat) -> CGFloat {
+        return (center - (caretWidth / 2.0)) / sliderWidth
+    }
+
+    func caretCenterFor(progress: CGFloat) -> CGFloat {
+        return caretWidth / 2.0 + progress * sliderWidth
+    }
+
     @objc func onPan(sender: UIPanGestureRecognizer) {
         let l = panRecognizer.location(in: self)
         caret.center.x = l.x
-        
-        caret.frame.origin.x = max(
-            0,
-            min(bounds.width - caret.frame.size.width, caret.frame.origin.x)
-        )
-        
+
+        let progress = progressFor(center: caret.center.x)
+        let clamped = min(max(progress, 0), 1)
+        self.progress = clamped
+
         if sender.state == .began {
             slidingActionStarted(true)
         }
@@ -789,13 +811,8 @@ public class LCARSGradientSlider : UIControl {
         if (sender.state == .cancelled) || (sender.state == .ended) {
             slidingActionStarted(false)
         }
+    }
 
-    }
-    
-    public var theValue : CGFloat {
-        get { return caret.center.x / bounds.size.width }
-        set { caret.center.x = newValue * bounds.size.width }
-    }
 }
 
 extension UIFont {

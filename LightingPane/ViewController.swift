@@ -137,12 +137,11 @@ class LightPanelController : NSObject, LightObserver {
             guard let self = self else { return }
             
             self.tracking = t
-            
-            if t == false {
-                self.hue       .theValue = self.hsv.h
-                self.saturation.theValue = self.hsv.s
-                self.brightness.theValue = self.hsv.v
-            }
+            guard t == false else { return }
+
+            self.hue       .progress = self.hsv.h
+            self.saturation.progress = self.hsv.s
+            self.brightness.progress = self.hsv.v
         }
         
         DispatchQueue.main.async {
@@ -169,9 +168,9 @@ class LightPanelController : NSObject, LightObserver {
         updateGradients(hsv: to)
         
         if tracking == false {
-            hue       .theValue = to.h
-            saturation.theValue = to.s
-            brightness.theValue = to.v
+            hue       .progress = to.h
+            saturation.progress = to.s
+            brightness.progress = to.v
         }
     }
     
@@ -184,11 +183,12 @@ class LightPanelController : NSObject, LightObserver {
     }
 
     @IBAction func changeColorFromSlider(sender: LCARSGradientSlider) {
-        let h = sender === hue        ? sender.theValue : nil
-        let s = sender === saturation ? sender.theValue : nil
-        let v = sender === brightness ? sender.theValue : nil
-        
-        light?.sendColor(hsv.changing(h: h, s: s, v: v))
+        let h = sender === hue        ? sender.progress : nil
+        let s = sender === saturation ? sender.progress : nil
+        let v = sender === brightness ? sender.progress : nil
+
+        let color = hsv.changing(h: h, s: s, v: v)
+        light?.sendColor(color)
     }
     
     @IBAction func toggleOn(_ sender: Any) {
