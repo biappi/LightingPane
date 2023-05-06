@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NQ4-J5-4I5">
-    <device id="ipad9_7" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NQ4-J5-4I5">
+    <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="kih-8h-Q4c">
             <objects>
-                <viewController id="NQ4-J5-4I5" customClass="ViewController" customModule="HK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NQ4-J5-4I5" customClass="ViewController" customModule="LightingPane" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lat-a8-oT3">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,7 +56,7 @@
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="740" verticalCompressionResistancePriority="740" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="304" translatesAutoresizingMaskIntoConstraints="NO" id="nMt-3b-gNY">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="304"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMH-tB-ejK" customClass="LCARSUIButton" customModule="CoreLCARS">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMH-tB-ejK" customClass="LCARSUIButton" customModule="CoreLCARS">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="304"/>
                                                 <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
@@ -600,6 +598,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="dnT-Uv-pl0"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="dnT-Uv-pl0" firstAttribute="bottom" secondItem="iPC-cc-nLV" secondAttribute="bottom" id="2Tj-hL-nlh"/>
@@ -613,7 +612,6 @@
                             <constraint firstItem="BFQ-rc-oGp" firstAttribute="top" secondItem="dnT-Uv-pl0" secondAttribute="top" id="o7F-M7-Cql"/>
                             <constraint firstItem="iPC-cc-nLV" firstAttribute="leading" secondItem="dnT-Uv-pl0" secondAttribute="leading" id="z4b-8t-Nw5"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="dnT-Uv-pl0"/>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -629,7 +627,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="oFp-Kj-GTA" customClass="LCARSTitle" customModule="CoreLCARS">
+                        <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oFp-Kj-GTA" customClass="LCARSTitle" customModule="CoreLCARS">
                             <rect key="frame" x="0.0" y="20" width="1024" height="43.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <accessibility key="accessibilityConfiguration">
@@ -658,17 +656,17 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpJ-YV-caX" userLabel="Content">
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fpJ-YV-caX" userLabel="Content">
                             <rect key="frame" x="0.0" y="103.5" width="1024" height="581"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="ihs-NA-zeL">
-                                    <rect key="frame" x="327" y="56" width="370.5" height="469"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="ihs-NA-zeL">
+                                    <rect key="frame" x="326.66666666666663" y="56" width="370.66666666666663" height="511.33333333333326"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="twn-6y-Vfb">
-                                            <rect key="frame" x="0.0" y="0.0" width="370.5" height="117.5"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="twn-6y-Vfb">
+                                            <rect key="frame" x="0.0" y="0.0" width="370.66666666666669" height="138.66666666666666"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rip-eb-uTw" customClass="LCARSLabel" customModule="CoreLCARS">
-                                                    <rect key="frame" x="77.5" y="0.0" width="215" height="58.5"/>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rip-eb-uTw" customClass="LCARSLabel" customModule="CoreLCARS">
+                                                    <rect key="frame" x="78" y="0.0" width="215" height="58.666666666666664"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="LIGHTS OFF"/>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="size">
@@ -679,8 +677,8 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ae-NX-MJM" customClass="LCARSLabel" customModule="CoreLCARS">
-                                                    <rect key="frame" x="47.5" y="88.5" width="275.5" height="29"/>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ae-NX-MJM" customClass="LCARSLabel" customModule="CoreLCARS">
+                                                    <rect key="frame" x="47.666666666666629" y="88.666666666666657" width="275.33333333333331" height="50"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="TAP SCREEN TO LIGHT ROOM"/>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="size">
@@ -693,11 +691,11 @@
                                                 </view>
                                             </subviews>
                                         </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="zRj-XP-4bF">
-                                            <rect key="frame" x="0.0" y="217.5" width="370.5" height="251.5"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="zRj-XP-4bF">
+                                            <rect key="frame" x="0.0" y="238.66666666666666" width="370.66666666666669" height="272.66666666666674"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QtX-2h-eNT" customClass="LCARSLabel" customModule="CoreLCARS">
-                                                    <rect key="frame" x="0.0" y="0.0" width="370.5" height="182.5"/>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QtX-2h-eNT" customClass="LCARSLabel" customModule="CoreLCARS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="370.66666666666669" height="182.66666666666666"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="00:00"/>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="size">
@@ -708,8 +706,8 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfJ-Wf-0CL" customClass="LCARSLabel" customModule="CoreLCARS">
-                                                    <rect key="frame" x="56.5" y="222.5" width="257" height="29"/>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qfJ-Wf-0CL" customClass="LCARSLabel" customModule="CoreLCARS">
+                                                    <rect key="frame" x="57" y="222.66666666666666" width="257" height="49.999999999999972"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="MONDAY • 23 DECEMBER"/>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="size">
@@ -734,7 +732,7 @@
                                 <constraint firstItem="ihs-NA-zeL" firstAttribute="centerX" secondItem="fpJ-YV-caX" secondAttribute="centerX" id="X94-zC-STq"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="REK-rV-PDn" customClass="LCARSTitle" customModule="CoreLCARS">
+                        <view contentMode="scaleToFill" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="REK-rV-PDn" customClass="LCARSTitle" customModule="CoreLCARS">
                             <rect key="frame" x="0.0" y="724.5" width="1024" height="43.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <accessibility key="accessibilityConfiguration">
@@ -764,6 +762,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
+                    <viewLayoutGuide key="safeArea" id="Btz-7O-BAa"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="REK-rV-PDn" firstAttribute="trailing" secondItem="Btz-7O-BAa" secondAttribute="trailing" id="2Tb-cq-Qc1"/>
@@ -777,9 +776,8 @@
                         <constraint firstItem="oFp-Kj-GTA" firstAttribute="leading" secondItem="Btz-7O-BAa" secondAttribute="leading" id="tXf-sf-9Fl"/>
                         <constraint firstItem="REK-rV-PDn" firstAttribute="top" secondItem="fpJ-YV-caX" secondAttribute="bottom" constant="40" id="ysx-EP-Qp3"/>
                     </constraints>
-                    <viewLayoutGuide key="safeArea" id="Btz-7O-BAa"/>
                 </view>
-                <customObject id="82S-SV-9OZ" customClass="LightPanelController" customModule="HK" customModuleProvider="target">
+                <customObject id="82S-SV-9OZ" customClass="LightPanelController" customModule="LightingPane" customModuleProvider="target">
                     <connections>
                         <outlet property="blackOverlay" destination="L3I-ph-afv" id="ooU-W7-USe"/>
                         <outlet property="brightness" destination="wh8-Rn-5o6" id="Zsz-W0-hyx"/>
@@ -787,7 +785,7 @@
                         <outlet property="saturation" destination="ups-mX-qHI" id="Kjl-Zy-oWQ"/>
                     </connections>
                 </customObject>
-                <customObject id="KIg-ZE-lHV" customClass="LightPanelController" customModule="HK" customModuleProvider="target">
+                <customObject id="KIg-ZE-lHV" customClass="LightPanelController" customModule="LightingPane" customModuleProvider="target">
                     <connections>
                         <outlet property="blackOverlay" destination="3im-S6-2Jc" id="rK1-Nn-RIo"/>
                         <outlet property="brightness" destination="y4b-Rr-7Zq" id="tL1-ey-bNn"/>
@@ -795,14 +793,14 @@
                         <outlet property="saturation" destination="YFM-Hx-gaX" id="jyB-Ky-ZtN"/>
                     </connections>
                 </customObject>
-                <customObject id="9Rj-TO-ZoG" userLabel="Living Room Clock Controller" customClass="ClockController" customModule="HK" customModuleProvider="target">
+                <customObject id="9Rj-TO-ZoG" userLabel="Living Room Clock Controller" customClass="ClockController" customModule="LightingPane" customModuleProvider="target">
                     <connections>
                         <outlet property="clock" destination="ZRd-UO-pR7" id="6Pi-G5-mKk"/>
                         <outlet property="date" destination="zVJ-Gm-gAh" id="bww-sJ-gpe"/>
                         <outlet property="dayName" destination="Oth-7e-DW1" id="iYV-la-XCG"/>
                     </connections>
                 </customObject>
-                <customObject id="mQs-pB-EMC" userLabel="Stand By Clock Controller" customClass="ClockController" customModule="HK" customModuleProvider="target">
+                <customObject id="mQs-pB-EMC" userLabel="Stand By Clock Controller" customClass="ClockController" customModule="LightingPane" customModuleProvider="target">
                     <connections>
                         <outlet property="clock" destination="QtX-2h-eNT" id="78j-rg-9Zg"/>
                         <outlet property="longDate" destination="qfJ-Wf-0CL" id="fYJ-Is-lRF"/>
@@ -812,4 +810,51 @@
             <point key="canvasLocation" x="182.8125" y="163.28125"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="2R3-YS-inT">
+            <size key="intrinsicContentSize" width="73" height="36.5"/>
+        </designable>
+        <designable name="8yC-Z9-guG">
+            <size key="intrinsicContentSize" width="205" height="10"/>
+        </designable>
+        <designable name="8yq-Hu-81K">
+            <size key="intrinsicContentSize" width="122" height="38"/>
+        </designable>
+        <designable name="BaA-ES-zyL">
+            <size key="intrinsicContentSize" width="122" height="38"/>
+        </designable>
+        <designable name="Dds-fI-fNb">
+            <size key="intrinsicContentSize" width="122" height="38"/>
+        </designable>
+        <designable name="Dey-Ci-Uyx">
+            <size key="intrinsicContentSize" width="122" height="38"/>
+        </designable>
+        <designable name="Nyr-92-Cj9">
+            <size key="intrinsicContentSize" width="210" height="50"/>
+        </designable>
+        <designable name="Oak-zN-hTN">
+            <size key="intrinsicContentSize" width="205" height="10"/>
+        </designable>
+        <designable name="TRa-3k-p2J">
+            <size key="intrinsicContentSize" width="210" height="50"/>
+        </designable>
+        <designable name="ZRd-UO-pR7">
+            <size key="intrinsicContentSize" width="133.5" height="65.5"/>
+        </designable>
+        <designable name="ZfI-S4-m0I">
+            <size key="intrinsicContentSize" width="122" height="38"/>
+        </designable>
+        <designable name="eCm-Q3-vQM">
+            <size key="intrinsicContentSize" width="122" height="38"/>
+        </designable>
+        <designable name="lMH-tB-ejK">
+            <size key="intrinsicContentSize" width="111" height="46"/>
+        </designable>
+        <designable name="lfe-ji-j7D">
+            <size key="intrinsicContentSize" width="73" height="36.5"/>
+        </designable>
+        <designable name="zVJ-Gm-gAh">
+            <size key="intrinsicContentSize" width="102" height="50"/>
+        </designable>
+    </designables>
 </document>

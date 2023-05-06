@@ -270,7 +270,7 @@ class AccessoryLight : NSObject, HMAccessoryDelegate, Light {
     
     override init() {
         super.init()
-        sendDebouncer.realAction = { [weak self] in self?.realSendColor(hsv: $0) }
+        sendDebouncer.realAction = { [weak self] in self?.realSendColor(color: $0) }
     }
     
     func changePowerFromAccessory() {
@@ -302,9 +302,7 @@ class AccessoryLight : NSObject, HMAccessoryDelegate, Light {
         sendDebouncer.action(hsv)
     }
     
-    func realSendColor(hsv: Any) {
-        let color = hsv as! HSV
-        
+    func realSendColor(color: HSV) {
         hueCharacteristic?       .writeValue(Int(color.h * 360)) { e in self.changeColorFromAccessory(); printError(e) }
         saturationCharacteristic?.writeValue(Int(color.s * 100)) { e in self.changeColorFromAccessory(); printError(e) }
         brightnessCharacteristic?.writeValue(Int(color.v * 100)) { e in self.changeColorFromAccessory(); printError(e) }
